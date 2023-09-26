@@ -1,66 +1,44 @@
 <template>
-	<ul>
-    <li><span class="material-icons">directions_bus</span>EDSA<br/>Carousel</li>
-    <li><span class="material-icons">tram</span>LRT-1</li>
-    <li class="current"><span class="material-icons">tram</span>MRT-3</li>
-    <li><span class="material-icons">tram</span>LRT-2</li>
+	<ul :class="bordercolor">
+    <TabItem label="EDSA Carousel" icon="directions_bus" 
+      code="edsabus" class="red" />
+    <TabItem label="LRT-1" icon="tram" code="lrt1" class="green" />
+    <TabItem label="MRT-3" icon="tram" code="mrt3" class="yellow" />
+    <TabItem label="LRT-2" icon="tram" code="lrt2" class="purple" />
 	</ul>
 </template>
 
+<script setup>
+  const route = useRoute();
+
+  const bordercolor = computed(() => ({
+    'red': route.path.substring(1) === "edsabus",
+    'green': route.path.substring(1) === "lrt1",
+    'yellow': route.path.substring(1) === "mrt3",
+    'purple': route.path.substring(1) === "lrt2"
+  }))
+</script>
+
 <style scoped>
-  /* Remove default styling */
-  ul, li {
+  /* Remove default styles */
+  ul { 
     margin: 0;
     padding: 0;
   }
 
-  li {
-    list-style: none;
-  }
-
-  /* Declare custom styling */
+  /* Declare custom style */
   ul {
     display: flex;
-    font-size: 0.85rem;
-    gap: 0.67rem;
-    padding: 0 0.67rem;
+    font-size: 0.5rem;
+    gap: 0.5rem;
+    padding: 0 0.33rem;
+    overflow-x: scroll;
   }
 
-  li {
-    width: 25%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    padding: 0.5em 0;
-    border-radius: 8px 8px 0 0;
-  }
-
-  li:first-child {
-    font-size: 0.85em;
-  }
-
-  li:hover {
-    cursor: pointer;
-    background-color: #bbbbbb;
-  }
-
-  /* Highlight */
-  li:not(.current) {
-    border: 1px solid gray;
-    border-bottom: none;
-    margin-bottom: 2px;
-  }
-  
-  li.current {
-    border: 2px solid green;
-    border-bottom: none;
-    z-index: 1;
-    background-color: white;
-  }
-
-  ul {
-    box-shadow: 0 -2px 0 green inset;
-  }
-
+  /* Dynamic border */
+  ul { box-shadow: 0 -2px 0 black inset; }
+  ul.red { box-shadow: 0 -2px 0 #e34234 inset; }
+  ul.green { box-shadow: 0 -2px 0 green inset; }
+  ul.yellow { box-shadow: 0 -2px 0 #ffbf00 inset; }
+  ul.purple { box-shadow: 0 -2px 0 purple inset; }
 </style>
