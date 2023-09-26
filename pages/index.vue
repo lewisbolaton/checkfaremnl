@@ -1,4 +1,10 @@
 <template>
-	<h2>My Page</h2>
-	<p>Hallo, Welt!</p>
+	<h2>loremipsumDLR</h2>
+	<Tabs />
 </template>
+
+<style scoped>
+	h2 {
+		text-align: center;
+	}
+</style>

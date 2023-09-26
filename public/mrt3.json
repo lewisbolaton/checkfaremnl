@@ -1,0 +1,17 @@
+{
+	"stations": [
+		{ "code": "NA", "name": "North Avenue" },
+		{ "code": "QA", "name": "Quezon Avenue" },
+		{ "code": "KA", "name": "GMA–Kamuning" },
+		{ "code": "AC", "name": "Araneta Center–Cubao" },
+		{ "code": "SA", "name": "Santolan–Annapolis" },
+		{ "code": "OR", "name": "Ortigas" },
+		{ "code": "SB", "name": "Shaw Boulevard" },
+		{ "code": "BA", "name": "Boni" },
+		{ "code": "GU", "name": "Guadalupe" },
+		{ "code": "BU", "name": "Buendia" },
+		{ "code": "AY", "name": "Ayala" },
+		{ "code": "MA", "name": "Magallanes" },
+		{ "code": "TA", "name": "Taft Avenue" }
+	]
+}
