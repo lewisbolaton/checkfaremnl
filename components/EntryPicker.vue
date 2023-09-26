@@ -1,17 +1,17 @@
 <template>
 	<div class="picker">
 		<ol>
-			<li>New York</li>
-			<li>Shanghai</li>
-			<li>Tokyo</li>
-			<li>Frankfurt</li>
-			<li>Mumbai</li>
+			<li v-for="s in props.list">{{ s }}</li>
 		</ol>
 		<div class="blurlayers">
 			<div></div><div></div>
 		</div>
 	</div>
 </template>
+
+<script setup>
+	const props = defineProps(['list']);
+</script>
 
 <style scoped>
 	/* Remove default styles */

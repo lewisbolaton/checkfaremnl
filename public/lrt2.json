@@ -1,0 +1,17 @@
+{
+	"stations": [
+		{ "code": "RE", "name": "Recto" },
+		{ "code": "LE", "name": "Legarda" },
+		{ "code": "PU", "name": "Pureza" },
+		{ "code": "VM", "name": "V. Mapa" },
+		{ "code": "JR", "name": "J. Ruiz" },
+		{ "code": "GI", "name": "Gilmore" },
+		{ "code": "BG", "name": "Betty Go-Belmonte" },
+		{ "code": "AC", "name": "Araneta Center–Cubao" },
+		{ "code": "AN", "name": "Anonas" },
+		{ "code": "KA", "name": "Katipunan" },
+		{ "code": "SA", "name": "Santolan" },
+		{ "code": "MA", "name": "Marikina–Pasig" },
+		{ "code": "AT", "name": "Antipolo" }
+	]
+}

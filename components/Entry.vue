@@ -1,8 +1,8 @@
 <template>
 	<div class="entry">
-		<EntryPicker />
+		<EntryPicker :list="stations.map(s => s.name)"/>
 		<span>&mdash;&nbsp;to&nbsp;&mdash;</span>
-		<EntryPicker />
+		<EntryPicker :list="stations.map(s => s.name)"/>
 		<!--
 		<select>
 			<option>Consectetur</option>
@@ -18,6 +18,12 @@
 
 	</div>
 </template>
+
+<script setup>
+	import data from "public/mrt3.json";
+	
+	const stations = data.stations;
+</script>
 
 <style scoped>
 	div.entry	{
