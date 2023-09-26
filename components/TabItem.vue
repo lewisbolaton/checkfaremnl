@@ -32,7 +32,8 @@
   /* BEGIN Declare custom styles */
   li {
     width: 25%;
-    padding: 0.5em;
+    /* padding: 0.5em; */
+    padding: 0;
 
     display: flex;
     justify-content: center;
@@ -41,6 +42,7 @@
     border-radius: 8px 8px 0 0;
     border-style: solid;
     border-bottom: none;
+
   }
   li:first-child {
     font-size: 0.83em;
@@ -52,6 +54,8 @@
   
   a { white-space: pre-wrap; }
   li.current > a:hover { cursor: auto; }
+
+  li > span { font-size: 1rem; }
 
   li.red > span { color: #e34234; }
   li.green > span { color: green; }

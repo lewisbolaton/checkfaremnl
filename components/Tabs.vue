@@ -29,8 +29,8 @@
   /* Declare custom style */
   ul {
     display: flex;
-    font-size: 0.5rem;
-    gap: 0.5rem;
+    font-size: 0.67rem;
+    gap: 4px;
     padding: 0 0.33rem;
     overflow-x: scroll;
   }
