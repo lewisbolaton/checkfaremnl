@@ -1,17 +1,15 @@
 <template>
 	<div class="entry">
-		<select>
-			<option>Lorem</option>
-			<option>Ipsum Dolor</option>
-			<option>Sit Amet</option>
-		</select>
+		<EntryPicker />
 		<span>&mdash;&nbsp;to&nbsp;&mdash;</span>
+		<EntryPicker />
+		<!--
 		<select>
 			<option>Consectetur</option>
 			<option>Adipiscing</option>
 			<option>Elit</option>
 		</select>
-		
+		-->
 		<div>
 			<label for="baggage">Do you have baggage</label>
 			<input type="checkbox" id="baggage" />
