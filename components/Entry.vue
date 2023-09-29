@@ -10,18 +10,14 @@
 			<option>Elit</option>
 		</select>
 		-->
-		<div>
-			<label for="baggage">Do you have baggage</label>
-			<input type="checkbox" id="baggage" />
-
-		</div>
-
+		<EntryToggle />
+		
 	</div>
 </template>
 
 <script setup>
-	import data_lrt2 from "public/lrt2.json";
-	import data_mrt3 from "public/mrt3.json";
+	import data_lrt2 from "~/data/lrt2.json";
+	import data_mrt3 from "~/data/mrt3.json";
 
 	var stations = [];
 
@@ -39,5 +35,14 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		margin-top: 0.8rem;
+
+	}
+
+	div.entry > span {
+		margin: 0.33rem 0;
+		font-size: 0.85em;
+		line-height: 1;
+		font-style: italic;
 	}
 </style>
