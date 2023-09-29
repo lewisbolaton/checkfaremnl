@@ -20,8 +20,8 @@
 </template>
 
 <script setup>
-	import data_lrt2 from "public/lrt2.json";
-	import data_mrt3 from "public/mrt3.json";
+	import data_lrt2 from "~/data/lrt2.json";
+	import data_mrt3 from "~/data/mrt3.json";
 
 	var stations = [];
 
