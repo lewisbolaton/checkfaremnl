@@ -10,7 +10,7 @@
 			<option>Elit</option>
 		</select>
 		-->
-		<div>
+		<div class="baggage">
 			<label for="baggage">Do you have baggage</label>
 			<input type="checkbox" id="baggage" />
 
@@ -39,5 +39,16 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		margin-top: 0.8rem;
+	}
+
+	div.entry > span {
+		margin: 0.33em 0;
+		font-size: 0.85em;
+		font-style: italic;
+	}
+
+	div.entry > div.baggage {
+		margin-top: 0.8rem;
 	}
 </style>
