@@ -1,0 +1,24 @@
+{
+	"stations": [
+		{ "code": "BA", "name": "Baclaran" },
+		{ "code": "ED", "name": "EDSA" },
+		{ "code": "LI", "name": "Libertad" },
+		{ "code": "GP", "name": "Gil Puyat" },
+		{ "code": "VC", "name": "Vito Cruz" },
+		{ "code": "QU", "name": "Quirino" },
+		{ "code": "PG", "name": "Pedro Gil" },
+		{ "code": "UN", "name": "United Nations" },
+		{ "code": "CT", "name": "Central" },
+		{ "code": "CA", "name": "Carriedo" },
+		{ "code": "DJ", "name": "Doroteo Jose" },
+		{ "code": "BM", "name": "Bambang" },
+		{ "code": "TA", "name": "Tayuman" },
+		{ "code": "BL", "name": "Blumentritt" },
+		{ "code": "AS", "name": "Abad Santos" },
+		{ "code": "RP", "name": "R. Papa" },
+		{ "code": "5A", "name": "5th Avenue" },
+		{ "code": "MO", "name": "Monumento" },
+		{ "code": "BW", "name": "Balintawak" },
+		{ "code": "FPJ", "name": "Fernando Poe Jr." }
+	]
+}

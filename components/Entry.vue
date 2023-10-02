@@ -18,15 +18,17 @@
 <script setup>
 	import data_lrt2 from "~/data/lrt2.json";
 	import data_mrt3 from "~/data/mrt3.json";
-
-	var stations = [];
+	import data_lrt1 from "~/data/lrt1.json";
 
 	const route = useRoute();
+	let stations = [];
 
 	if (route.path.substring(1) === "lrt2") {
 		stations = data_lrt2.stations;
 	} else if (route.path.substring(1) === "mrt3") {
 		stations = data_mrt3.stations;
+	} else if (route.path.substring(1) === "lrt1") {
+		stations = [...data_lrt1.stations].reverse();
 	}
 </script>
 
