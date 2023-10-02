@@ -11,7 +11,7 @@
 		</select>
 		-->
 		<EntryToggle />
-		
+		<Check />
 	</div>
 </template>
 
