@@ -1,6 +1,6 @@
 <template>
 	<div class="picker">
-		<ol>
+		<ol ref="pickerList">
 			<li v-for="s in props.list">{{ s }}</li>
 		</ol>
 		<div class="blurlayers">
@@ -10,7 +10,29 @@
 </template>
 
 <script setup>
+	import { onMounted } from 'vue';
+
 	const props = defineProps(['list']);
+
+	/*
+	const getScrollIndex = () => {
+
+	}
+	*/
+	const pickerList = ref();
+	onMounted(() => {
+		let listInstanceRect = pickerList.value.getBoundingClientRect();
+		let midPoint = (listInstanceRect.bottom + listInstanceRect.top) / 2;
+
+		let items = pickerList.value.children;
+		let itemKeys = Object.keys(items);
+		
+		itemKeys.forEach(i => {
+			console.log(items[i]);
+		});
+		
+		console.log(itemKeys);
+	})
 </script>
 
 <style scoped>
