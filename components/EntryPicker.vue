@@ -1,7 +1,7 @@
 <template>
 	<div class="picker">
 		<ol ref="pickerlist">
-			<li v-for="s in props.list">{{ s }}</li>
+			<li v-for="s in props.list">{{ s.name }}</li>
 		</ol>
 		<div class="blurlayers">
 			<div></div><div></div>
@@ -22,14 +22,18 @@
 
 		let items = pickerlist.value.children;
 		let itemKeys = Object.keys(items);
-		
-		itemKeys.forEach(i => {
+
+		let stationCode  = props.list[0].code;
+		itemKeys.every(i => {
 			let top = items[i].getBoundingClientRect().top;
 			let bottom = items[i].getBoundingClientRect().bottom;
 			if (bottom > midPoint && midPoint > top) {
-				console.log("Found at " + i);
+				stationCode = props.list[i].code;
+				return false;
 			}
+			return true;
 		});
+		return stationCode;
 	}
 
 	defineExpose({ getScrollIndex });

@@ -1,8 +1,8 @@
 <template>
 	<div class="entry">
-		<EntryPicker :list="stations.map(s => s.name)" ref="originpicker"/>
+		<EntryPicker :list="stations" ref="originpicker"/>
 		<span>&mdash;&nbsp;to&nbsp;&mdash;</span>
-		<EntryPicker :list="stations.map(s => s.name)" ref="destpicker"/>
+		<EntryPicker :list="stations" ref="destpicker"/>
 		<!--
 		<select>
 			<option>Consectetur</option>
@@ -11,7 +11,7 @@
 		</select>
 		-->
 		<EntryToggle />
-		<Check @check="getPickerIndices" />
+		<Check @check="checkFare(getPickerIndices())" />
 	</div>
 
 	<!-- BEGIN DRAFT
@@ -36,12 +36,14 @@
 
 	const route = useRoute();
 	let stations = [];
+	let line;
 	
 	const originpicker = ref(null);
 	const destpicker = ref(null);
 
 	if (route.path.substring(1) === "lrt2") {
 		stations = data_lrt2.stations;
+		line = data_lrt2;
 	} else if (route.path.substring(1) === "mrt3") {
 		stations = data_mrt3.stations;
 	} else if (route.path.substring(1) === "lrt1") {
@@ -49,9 +51,16 @@
 	}
 
 	const getPickerIndices = () => {
-		originpicker.value.getScrollIndex();
-		destpicker.value.getScrollIndex();
+		return {
+			origin: originpicker.value.getScrollIndex(),
+			dest: destpicker.value.getScrollIndex()
+		}
 	}
+
+	const checkFare = (journey) => {
+		let destIndex = line["stations"].findIndex(s => s.code === journey.dest);
+		console.log(line["fares"]["svc"][journey.origin][destIndex]);
+	} 
 
 	/* BEGIN DRAFT
 	onMounted(() => {
