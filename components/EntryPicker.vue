@@ -1,7 +1,7 @@
 <template>
 	<div class="picker">
-		<ol>
-			<li v-for="s in props.list">{{ s }}</li>
+		<ol ref="pickerlist">
+			<li v-for="s in props.list">{{ s.name }}</li>
 		</ol>
 		<div class="blurlayers">
 			<div></div><div></div>
@@ -10,7 +10,49 @@
 </template>
 
 <script setup>
+	import { onMounted } from 'vue';
+
 	const props = defineProps(['list']);
+	const pickerlist = ref(null);
+
+	
+	const getScrollIndex = () => {
+		let listInstanceRect = pickerlist.value.getBoundingClientRect();
+		let midPoint = (listInstanceRect.bottom + listInstanceRect.top) / 2;
+
+		let items = pickerlist.value.children;
+		let itemKeys = Object.keys(items);
+
+		let stationCode  = props.list[0].code;
+		itemKeys.every(i => {
+			let top = items[i].getBoundingClientRect().top;
+			let bottom = items[i].getBoundingClientRect().bottom;
+			if (bottom > midPoint && midPoint > top) {
+				stationCode = props.list[i].code;
+				return false;
+			}
+			return true;
+		});
+		return stationCode;
+	}
+
+	defineExpose({ getScrollIndex });
+	
+	onMounted(() => {
+		let listInstanceRect = pickerlist.value.getBoundingClientRect();
+		let midPoint = (listInstanceRect.bottom + listInstanceRect.top) / 2;
+
+		let items = pickerlist.value.children;
+		let itemKeys = Object.keys(items);
+		
+		itemKeys.forEach(i => {
+			let top = items[i].getBoundingClientRect().top;
+			let bottom = items[i].getBoundingClientRect().bottom;
+			if (bottom > midPoint && midPoint > top) {
+				console.log("Found at " + i);
+			}
+		});
+	})
 </script>
 
 <style scoped>
