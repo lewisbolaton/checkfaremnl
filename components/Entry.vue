@@ -1,8 +1,8 @@
 <template>
 	<div class="entry">
-		<EntryPicker :list="stations.map(s => s.name)"/>
+		<EntryPicker :list="stations.map(s => s.name)" ref="originpicker"/>
 		<span>&mdash;&nbsp;to&nbsp;&mdash;</span>
-		<EntryPicker :list="stations.map(s => s.name)"/>
+		<EntryPicker :list="stations.map(s => s.name)" ref="destpicker"/>
 		<!--
 		<select>
 			<option>Consectetur</option>
@@ -11,7 +11,7 @@
 		</select>
 		-->
 		<EntryToggle />
-		<Check />
+		<Check @check="getPickerIndices" />
 	</div>
 
 	<!-- BEGIN DRAFT
@@ -36,6 +36,9 @@
 
 	const route = useRoute();
 	let stations = [];
+	
+	const originpicker = ref(null);
+	const destpicker = ref(null);
 
 	if (route.path.substring(1) === "lrt2") {
 		stations = data_lrt2.stations;
@@ -43,6 +46,11 @@
 		stations = data_mrt3.stations;
 	} else if (route.path.substring(1) === "lrt1") {
 		stations = [...data_lrt1.stations].reverse();
+	}
+
+	const getPickerIndices = () => {
+		originpicker.value.getScrollIndex();
+		destpicker.value.getScrollIndex();
 	}
 
 	/* BEGIN DRAFT

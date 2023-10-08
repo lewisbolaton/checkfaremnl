@@ -1,26 +1,26 @@
 <template>
 	<div class="picker">
-		<ol ref="pickerList">
+		<ol ref="pickerlist">
 			<li v-for="s in props.list">{{ s }}</li>
 		</ol>
 		<div class="blurlayers">
 			<div></div><div></div>
 		</div>
 	</div>
-	<button @click="getScrollIndex">Check index</button>
 </template>
 
 <script setup>
 	import { onMounted } from 'vue';
 
 	const props = defineProps(['list']);
+	const pickerlist = ref(null);
 
 	
 	const getScrollIndex = () => {
-		let listInstanceRect = pickerList.value.getBoundingClientRect();
+		let listInstanceRect = pickerlist.value.getBoundingClientRect();
 		let midPoint = (listInstanceRect.bottom + listInstanceRect.top) / 2;
 
-		let items = pickerList.value.children;
+		let items = pickerlist.value.children;
 		let itemKeys = Object.keys(items);
 		
 		itemKeys.forEach(i => {
@@ -31,13 +31,14 @@
 			}
 		});
 	}
+
+	defineExpose({ getScrollIndex });
 	
-	const pickerList = ref();
 	onMounted(() => {
-		let listInstanceRect = pickerList.value.getBoundingClientRect();
+		let listInstanceRect = pickerlist.value.getBoundingClientRect();
 		let midPoint = (listInstanceRect.bottom + listInstanceRect.top) / 2;
 
-		let items = pickerList.value.children;
+		let items = pickerlist.value.children;
 		let itemKeys = Object.keys(items);
 		
 		itemKeys.forEach(i => {

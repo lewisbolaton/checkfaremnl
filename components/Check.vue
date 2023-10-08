@@ -4,8 +4,10 @@
 
 
 <script setup>
+const emit = defineEmits(['check']);
+
 const handleClick = () => {
-	console.log("button clicked");
+	emit('check');
 }
 </script>
 
