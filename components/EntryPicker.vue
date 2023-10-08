@@ -7,6 +7,7 @@
 			<div></div><div></div>
 		</div>
 	</div>
+	<button @click="getScrollIndex">Check index</button>
 </template>
 
 <script setup>
@@ -14,11 +15,23 @@
 
 	const props = defineProps(['list']);
 
-	/*
+	
 	const getScrollIndex = () => {
+		let listInstanceRect = pickerList.value.getBoundingClientRect();
+		let midPoint = (listInstanceRect.bottom + listInstanceRect.top) / 2;
 
+		let items = pickerList.value.children;
+		let itemKeys = Object.keys(items);
+		
+		itemKeys.forEach(i => {
+			let top = items[i].getBoundingClientRect().top;
+			let bottom = items[i].getBoundingClientRect().bottom;
+			if (bottom > midPoint && midPoint > top) {
+				console.log("Found at " + i);
+			}
+		});
 	}
-	*/
+	
 	const pickerList = ref();
 	onMounted(() => {
 		let listInstanceRect = pickerList.value.getBoundingClientRect();
@@ -28,10 +41,12 @@
 		let itemKeys = Object.keys(items);
 		
 		itemKeys.forEach(i => {
-			console.log(items[i]);
+			let top = items[i].getBoundingClientRect().top;
+			let bottom = items[i].getBoundingClientRect().bottom;
+			if (bottom > midPoint && midPoint > top) {
+				console.log("Found at " + i);
+			}
 		});
-		
-		console.log(itemKeys);
 	})
 </script>
 

@@ -13,6 +13,20 @@
 		<EntryToggle />
 		<Check />
 	</div>
+
+	<!-- BEGIN DRAFT
+	<div>
+		<select id="browsers">
+  			<option value="Chrome">Chrome</option>
+  			<option value="Firefox">Firefox</option>
+  			<option value="Opera">Opera</option>
+  			<option value="Safari">Safari</option>
+  			<option value="Microsoft Edge">Edge</option>
+		</select>
+
+		<button id="slcbtn">Select browser</button>
+	</div>
+	END DRAFT -->
 </template>
 
 <script setup>
@@ -30,6 +44,23 @@
 	} else if (route.path.substring(1) === "lrt1") {
 		stations = [...data_lrt1.stations].reverse();
 	}
+
+	/* BEGIN DRAFT
+	onMounted(() => {
+		const button = document.querySelector("button#slcbtn");
+		const browserInput = document.querySelector("select#browsers");
+
+		button.addEventListener("click", () => {
+		  try {
+		    browserInput.showPicker();
+		    console.log("picker shown")
+		  } catch (error) {
+		    // Fall back to another picker mechanism
+		    console.log(error);
+		  }
+		});
+	});
+	END DRAFT */
 </script>
 
 <style scoped>
