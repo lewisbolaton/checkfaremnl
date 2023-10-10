@@ -36,19 +36,22 @@
 
 	const route = useRoute();
 	let stations = [];
-	let line;
 	
 	const originpicker = ref(null);
 	const destpicker = ref(null);
 
 	if (route.path.substring(1) === "lrt2") {
 		stations = data_lrt2.stations;
-		line = data_lrt2;
 	} else if (route.path.substring(1) === "mrt3") {
 		stations = data_mrt3.stations;
 	} else if (route.path.substring(1) === "lrt1") {
 		stations = [...data_lrt1.stations].reverse();
 	}
+
+	var code = (' ' + route.path.substring(1)).slice(1)
+	const fareData = await useFetch("/fares-" + code + ".json",
+		{ server: false });
+	
 
 	const getPickerIndices = () => {
 		return {
@@ -58,8 +61,11 @@
 	}
 
 	const checkFare = (journey) => {
+		console.log(fareData.data.value.matrix.fares["svc"][0][0]);
+		/*
 		let destIndex = line["stations"].findIndex(s => s.code === journey.dest);
 		console.log(line["fares"]["svc"][journey.origin][destIndex]);
+		*/
 	} 
 
 	/* BEGIN DRAFT
