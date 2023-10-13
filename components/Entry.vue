@@ -10,7 +10,7 @@
 			<option>Elit</option>
 		</select>
 		-->
-		<EntryToggle />
+		<!-- <EntryToggle /> -->
 		<Check @check="checkFare(getPickerIndices())" />
 	</div>
 
@@ -91,8 +91,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		margin-top: 0.8rem;
-
+		padding-top: 0.8rem;
 	}
 
 	div.entry > span {
@@ -100,5 +99,9 @@
 		font-size: 0.85em;
 		line-height: 1;
 		font-style: italic;
+	}
+
+	div.entry {
+		background-color: #FFFFFF;
 	}
 </style>
