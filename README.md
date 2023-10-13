@@ -1,6 +1,6 @@
-> This project is currently a WORK IN PROGRESS
+# This project is currently a **WORK IN PROGRESS**
 
-## checkFareMNL
+## checkfareMNL
 
 Website for centralized access to information about current ticket price for different public transportation options in Metro Manila. Current target for support is all train lines (excluding PNR), and EDSA Carousel.
 
@@ -15,3 +15,7 @@ This is an attempt in developing a **mobile-first web application**. Built with 
 1. Move inside the downloaded directory (`cd checkfaremnl`) and run `yarn install`
 1. Open your favorite text editor (personally recommend sublime-text) and code away!
 1. To preview the website in your machine, run `yarn run dev`
+
+#### Third-party tools
+
+* [Nanonets](https://www.nanonets.com/) - Used for converting source data (formated as image) to CSV
